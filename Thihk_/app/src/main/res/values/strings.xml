@@ -1,0 +1,12 @@
+
+<resources>
+    <string name="app_name">Plant App</string>
+    <string name="search_your_plants">Search Your Plants…</string>
+    <string name="plant_categories">Plant Categories</string>
+    <string name="country">Country</string>
+    <string name="category">Category</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="dot_loading">...</string>
+    <string name="how_to_care">Step to care</string>
+    <string name="favorite">Favorite</string>
+</resources>
