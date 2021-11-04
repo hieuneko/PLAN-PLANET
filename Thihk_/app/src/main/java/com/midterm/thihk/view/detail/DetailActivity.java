@@ -1,12 +1,17 @@
 package com.midterm.thihk.view.detail;
 
+import static com.midterm.thihk.view.home.HomeActivity.EXTRA_DETAIL;
+
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,14 +24,19 @@ import androidx.core.view.ViewCompat;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.midterm.thihk.R;
+import com.midterm.thihk.Utils;
+import com.midterm.thihk.model.Plants;
 
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 
-public class DetailActivity extends AppCompatActivity { //TODO #11  implement DetailView
+public class DetailActivity extends AppCompatActivity implements DetailView {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -66,9 +76,11 @@ public class DetailActivity extends AppCompatActivity { //TODO #11  implement De
 
         setupActionBar();
 
-        //TODO #9 Get data from the intent
+        Intent intent = getIntent();
+        String plantName = intent.getStringExtra(EXTRA_DETAIL);
 
-        //TODO #10 Declare the presenter (put the name of the meal name from the data intent to the presenter)
+        DetailPresenter presenter = new DetailPresenter(this);
+        presenter.getPlantById(plantName);
 
     }
 
@@ -119,4 +131,23 @@ public class DetailActivity extends AppCompatActivity { //TODO #11  implement De
         }
     }
 
+    @Override
+    public void showLoading() {
+         progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideLoading() {
+         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void setPlant(ArrayList<Plants> plant) {
+        Log.w("TAG",plant.getStrPlant());
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+        Utils.showDialogMessage(this, "Error", message);
+    }
 }

@@ -1,5 +1,13 @@
 package com.midterm.thihk.view.detail;
+
 import com.midterm.thihk.model.Plants;
+
+import java.util.ArrayList;
+
 public interface DetailView {
-    //TODO #4 Add void method  for showLoading, hideLoading, setMeal, onErrorLoading;
+
+    void showLoading();
+    void hideLoading();
+    void setPlant(ArrayList<Plants> plant);
+    void onErrorLoading(String message);
 }

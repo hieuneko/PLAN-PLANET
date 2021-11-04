@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -23,6 +24,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import com.midterm.thihk.Utils;
+import com.midterm.thihk.view.detail.DetailActivity;
+
 import butterknife.ButterKnife;
 
 
@@ -79,8 +82,11 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public void setPlant(ArrayList<Plants> plant) {
         headerAdapter.setData(plant);
         headerAdapter.notifyDataSetChanged();
-        headerAdapter.setOnItemClickListener((v, position) -> {
-            //TODO #8.1 make an intent to DetailActivity (get the name of the meal from the edit text view, then send the name of the meal to DetailActivity)
+        headerAdapter.setOnItemClickListener((view, position) -> {
+            TextView mealName = view.findViewById(R.id.plantName);
+            Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+            intent.putExtra(EXTRA_DETAIL, plantName.getText.toString());
+            startActivity(intent);
         });
     }
 

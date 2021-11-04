@@ -1,5 +1,8 @@
 package com.midterm.thihk.view.category;
+import static com.midterm.thihk.view.home.HomeActivity.EXTRA_DETAIL;
+
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +23,7 @@ import com.midterm.thihk.R;
 import com.midterm.thihk.adapter.RecyclerViewPlantByCategory;
 import com.midterm.thihk.adapter.RecyclerViewPlantByCategory;
 import com.midterm.thihk.model.Plants;
+import com.midterm.thihk.view.detail.DetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -93,7 +97,10 @@ public class CategoryFragment extends Fragment implements CategoryView {
         adapter.notifyDataSetChanged();
 
         adapter.setOnItemClickListener((view, position) -> {
-            //TODO #8.2 make an intent to DetailActivity (get the name of the meal from the edit text view, then send the name of the meal to DetailActivity)
+            TextView mealName = view.findViewById(R.id.plantName);
+            Intent intent = new Intent(getActivity(), DetailActivity.class);
+            intent.putExtra(EXTRA_DETAIL, plantName.getText.toString());
+            startActivity(intent);
             Toast.makeText(getActivity(), "plant : " +
                     plants.get(position).getName(),
                     Toast.LENGTH_SHORT).show();

@@ -20,5 +20,7 @@ public interface PlantApi {
 
     @GET("plants")
     Call<ArrayList<Plants>> getPlantByCategory(@Query("nameCate") String category);
-    //TODO #3 Call the search.php with query string the meal name @GET("search.php)
+
+    @GET("plants")
+    Call<ArrayList<Plants>> getPlantByName(@Query("name") String plantName);
 }
