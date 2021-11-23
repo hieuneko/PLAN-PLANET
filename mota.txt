@@ -1,0 +1,2 @@
+update detail activity
+add search plants input  cate for fragment category
