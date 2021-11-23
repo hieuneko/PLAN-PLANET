@@ -30,7 +30,7 @@ public class DetailPresenter {
                     public void onResponse(@NonNull Call<ArrayList<Plants>> call,@NonNull Response<ArrayList<Plants>> response) {
                         view.hideLoading();
                         if (response.isSuccessful() && response.body() != null)  {
-                                view.setPlant(response.body().getPlants().get(0));
+                                view.setPlant(response.body().getPlant.get(0));
                         }  else {
                             view.onErrorLoading(response.message());
                         }

@@ -133,17 +133,20 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
 
     @Override
     public void showLoading() {
-         progressBar.setVisibility(View.VISIBLE);
+
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-         progressBar.setVisibility(View.INVISIBLE);
+
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
     public void setPlant(ArrayList<Plants> plant) {
-        Log.w("TAG",plant.getStrPlant());
+
+        Log.w("TAG",plant.getPlant());
     }
 
     @Override

@@ -83,9 +83,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         headerAdapter.setData(plant);
         headerAdapter.notifyDataSetChanged();
         headerAdapter.setOnItemClickListener((view, position) -> {
-            TextView mealName = view.findViewById(R.id.plantName);
+            TextView plantName = view.findViewById(R.id.plantName);
             Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-            intent.putExtra(EXTRA_DETAIL, plantName.getText.toString());
+            intent.putExtra(EXTRA_DETAIL, plantName.getText().toString());
             startActivity(intent);
         });
     }
