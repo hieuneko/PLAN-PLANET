@@ -7,11 +7,11 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,10 +26,9 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.midterm.thihk.R;
 import com.midterm.thihk.Utils;
 import com.midterm.thihk.model.Plants;
+import com.midterm.thihk.view.notes.NoteActivity;
+import com.squareup.picasso.Picasso;
 
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,26 +46,26 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     @BindView(R.id.collapsing_toolbar)
     CollapsingToolbarLayout collapsingToolbarLayout;
 
-    @BindView(R.id.mealThumb)
-    ImageView mealThumb;
+    @BindView(R.id.plantThumb)
+    ImageView plantThumb;
 
     @BindView(R.id.category)
     TextView category;
 
-    @BindView(R.id.country)
-    TextView country;
+    @BindView(R.id.area)
+    TextView area;
 
-    @BindView(R.id.instructions)
+    @BindView(R.id.descriptions)
     TextView instructions;
 
-    @BindView(R.id.ingredient)
+    @BindView(R.id.steps)
     TextView ingredients;
-
-    @BindView(R.id.measure)
-    TextView measures;
 
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+
+    @BindView(R.id.btn_note)
+    Button btnNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +80,14 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
 
         DetailPresenter presenter = new DetailPresenter(this);
         presenter.getPlantById(plantName);
+
+        btnNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DetailActivity.this, NoteActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -133,20 +140,41 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
 
     @Override
     public void showLoading() {
-
-        progressBar.setVisibility(View.VISIBLE);
+         progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-
-        progressBar.setVisibility(View.INVISIBLE);
+         progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
-    public void setPlant(ArrayList<Plants> plant) {
+    public void setPlant(Plants plant) {
+        Picasso.get().load(plant.getThumb()).into(plantThumb);
+        collapsingToolbarLayout.setTitle(plant.getName());
+        category.setText(plant.getnameCate());
+        area.setText(plant.getArea());
+        instructions.setText(plant.getDescription());
+        setupActionBar();
 
-        Log.w("TAG",plant.getPlant());
+        if (!plant.getStepCare1().isEmpty()){
+            ingredients.append("\n \u2022 " + plant.getStepCare1());
+        }
+        if (!plant.getStepCare2().isEmpty()){
+            ingredients.append("\n \u2022 " + plant.getStepCare2());
+        }
+        if (!plant.getStepCare3().isEmpty()){
+            ingredients.append("\n \u2022 " + plant.getStepCare3());
+        }
+        if (!plant.getStepCare4().isEmpty()){
+            ingredients.append("\n \u2022 " + plant.getStepCare4());
+        }
+        if (!plant.getStepCare5().isEmpty()){
+            ingredients.append("\n \u2022 " + plant.getStepCare5());
+        }
+
+
+
     }
 
     @Override

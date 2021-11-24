@@ -24,6 +24,15 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Thihk/app/src/main/res/layout/item_view_pager_header.xml" value="0.1671195652173913" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Thihk/app/src/main/res/layout/item_view_pager_header_shimmer.xml" value="0.1671195652173913" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Thihk/app/src/main/res/menu/menu_detail.xml" value="0.1796875" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/drawable/splash_background.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/layout/activity_detail.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/layout/activity_home.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/layout/activity_note.xml" value="0.14447463768115942" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/layout/floating_popup.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/layout/reminder_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/mipmap-anydpi-v26/splash.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/mipmap-anydpi-v26/splash_round.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/PLANT-PLANET/Thihk_/app/src/main/res/layout/activity_detail.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/admin/Downloads/PLANT-PLANET-main/Thihk/app/src/main/res/layout/activity_category.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/Downloads/PLANT-PLANET-main/Thihk/app/src/main/res/layout/activity_detail.xml" value="0.20416666666666666" />
@@ -34,6 +43,15 @@
         <entry key="..\:/Users/admin/Downloads/PLANT-PLANET-main/Thihk/app/src/main/res/layout/item_recycler_category_shimmer.xml" value="0.18" />
         <entry key="..\:/Users/admin/Downloads/PLANT-PLANET-main/Thihk/app/src/main/res/layout/item_recycler_plant.xml" value="0.25" />
         <entry key="..\:/Users/admin/Downloads/PLANT-PLANET-main/Thihk/app/src/main/res/menu/menu_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/drawable/ic_circle.xml" value="0.2203125" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/layout/activity_category.xml" value="0.2" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/layout/activity_home.xml" value="0.2621951219512195" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/layout/fragment_category.xml" value="0.25" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/layout/item_recycler_plant.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Downloads/Thihk_/app/src/main/res/menu/menu_detail.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

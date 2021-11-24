@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Developed by Haerul Muttaqin
-  Last modified 3/24/19 2:55 AM
-  Subscribe : https://www.youtube.com/haerulmuttaqin 
-  Copyright (c) 2019. All rights reserved
-  -->
+
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,19 +15,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppBarLayoutTheme">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+            android:layout_height="wrap_content" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorHeight="3dp"
+            app:tabContentStart="85dp"
             app:tabIndicatorColor="@color/colorPrimary"
-            app:tabMode="scrollable"
-            app:tabContentStart="85dp"/>
+            app:tabIndicatorHeight="3dp"
+            app:tabMode="scrollable" />
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

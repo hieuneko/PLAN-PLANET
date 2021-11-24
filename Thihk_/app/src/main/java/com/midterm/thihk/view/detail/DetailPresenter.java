@@ -22,15 +22,14 @@ public class DetailPresenter {
 
         view.showLoading();
 
-        //TODO #6 Make a request to the server (Don't forget to hide loading when the response is received)
-
         Utils.getApi().getPlantByName(plantName)
                 .enqueue(new Callback<ArrayList<Plants>>() {
                     @Override
                     public void onResponse(@NonNull Call<ArrayList<Plants>> call,@NonNull Response<ArrayList<Plants>> response) {
                         view.hideLoading();
+
                         if (response.isSuccessful() && response.body() != null)  {
-                                view.setPlant(response.body().getPlant.get(0));
+                                view.setPlant(response.body().get(0));
                         }  else {
                             view.onErrorLoading(response.message());
                         }

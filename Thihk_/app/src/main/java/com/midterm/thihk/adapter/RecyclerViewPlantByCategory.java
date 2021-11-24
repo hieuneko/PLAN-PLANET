@@ -85,4 +85,10 @@ public class RecyclerViewPlantByCategory extends RecyclerView.Adapter<RecyclerVi
     public interface ClickListener {
         void onClick(View view, int position);
     }
+
+    public void filterList(ArrayList<Plants> filteredList){
+        plants = filteredList;
+        notifyDataSetChanged();
+    }
+
 }

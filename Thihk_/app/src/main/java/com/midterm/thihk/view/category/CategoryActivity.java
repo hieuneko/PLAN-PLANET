@@ -2,16 +2,22 @@ package com.midterm.thihk.view.category;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.midterm.thihk.R;
+import com.midterm.thihk.adapter.RecyclerViewPlantByCategory;
 import com.midterm.thihk.adapter.ViewPagerCategoryAdapter;
 import com.midterm.thihk.model.Categories;
+import com.midterm.thihk.model.Plants;
 import com.midterm.thihk.view.home.HomeActivity;
 
 
@@ -33,6 +39,7 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
 
@@ -51,10 +58,9 @@ public class CategoryActivity extends AppCompatActivity {
                 getSupportFragmentManager(),
                 categories);
         viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(position, true);
+        tabLayout.setupWithViewPager(viewPager);
         adapter.notifyDataSetChanged();
-
     }
 
     private void initActionBar() {
@@ -62,6 +68,7 @@ public class CategoryActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
     }
 
     @Override

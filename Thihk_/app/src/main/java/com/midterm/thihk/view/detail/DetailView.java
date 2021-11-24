@@ -8,6 +8,6 @@ public interface DetailView {
 
     void showLoading();
     void hideLoading();
-    void setPlant(ArrayList<Plants> plant);
+    void setPlant(Plants plant);
     void onErrorLoading(String message);
 }

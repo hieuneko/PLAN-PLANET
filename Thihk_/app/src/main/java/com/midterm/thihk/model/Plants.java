@@ -13,9 +13,9 @@ public class Plants {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("idCate")
+    @SerializedName("nameCate")
     @Expose
-    private String idCate;
+    private String nameCate;
     @SerializedName("area")
     @Expose
     private String area;
@@ -41,10 +41,10 @@ public class Plants {
     @Expose
     private String stepCare5;
 
-    public Plants(String id, String name, String idCate, String area, String description, String thumb, String stepCare1, String stepCare2, String stepCare3, String stepCare4, String stepCare5) {
+    public Plants(String id, String name, String nameCate, String area, String description, String thumb, String stepCare1, String stepCare2, String stepCare3, String stepCare4, String stepCare5) {
         this.id = id;
         this.name = name;
-        this.idCate = idCate;
+        this.nameCate = nameCate;
         this.area = area;
         this.description = description;
         this.thumb = thumb;
@@ -71,12 +71,12 @@ public class Plants {
         this.name = name;
     }
 
-    public String getIdCate() {
-        return idCate;
+    public String getnameCate() {
+        return nameCate;
     }
 
-    public void setIdCate(String idCate) {
-        this.idCate = idCate;
+    public void setnameCate(String nameCate) {
+        this.nameCate = nameCate;
     }
 
     public String getArea() {

@@ -42,6 +42,18 @@ public class ViewPagerCategoryAdapter extends FragmentPagerAdapter {
         }else return categories.size();
     }
 
+    @Override
+    public int getItemPosition(Object object) {
+        // this method will be called for every fragment in the ViewPager
+        if (object instanceof CategoryFragment) {
+            return POSITION_UNCHANGED; // don't force a reload
+        } else {
+            // POSITION_NONE means something like: this fragment is no longer valid
+            // triggering the ViewPager to re-build the instance of this fragment.
+            return POSITION_NONE;
+        }
+    }
+
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {

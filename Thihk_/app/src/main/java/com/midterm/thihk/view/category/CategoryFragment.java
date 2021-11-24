@@ -3,18 +3,24 @@ import static com.midterm.thihk.view.home.HomeActivity.EXTRA_DETAIL;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,8 +51,11 @@ public class CategoryFragment extends Fragment implements CategoryView {
     ImageView imageCategoryBg;
     @BindView(R.id.textCategory)
     TextView textCategory;
+    @BindView(R.id.ed_search)
+    public EditText ed_Search;
 
     AlertDialog.Builder descDialog;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -77,8 +86,21 @@ public class CategoryFragment extends Fragment implements CategoryView {
         }
     }
 
+    private boolean isViewShown = false;
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (getView() != null) {
+            isViewShown = true;
+            ed_Search.setText("");
+        } else {
+            isViewShown = false;
+        }
+    }
+
     @Override
     public void showLoading() {
+
         progressBar.setVisibility(View.VISIBLE);
     }
 
@@ -94,18 +116,45 @@ public class CategoryFragment extends Fragment implements CategoryView {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerView.setClipToPadding(false);
         recyclerView.setAdapter(adapter);
+
+        ed_Search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                ArrayList<Plants> filteredList = new ArrayList<>();
+                for (Plants item : plants) {
+                    if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+                        filteredList.add(item);
+                    }
+                }
+                adapter.filterList(filteredList);
+
+            }
+        });
         adapter.notifyDataSetChanged();
 
         adapter.setOnItemClickListener((view, position) -> {
-            TextView mealName = view.findViewById(R.id.plantName);
+            TextView plantName = view.findViewById(R.id.plantName);
             Intent intent = new Intent(getActivity(), DetailActivity.class);
-            intent.putExtra(EXTRA_DETAIL, plantName.getText.toString());
+            intent.putExtra(EXTRA_DETAIL, plantName.getText().toString());
             startActivity(intent);
             Toast.makeText(getActivity(), "plant : " +
                     plants.get(position).getName(),
                     Toast.LENGTH_SHORT).show();
         });
+
     }
+
 
     @Override
     public void onErrorLoading(String message) {

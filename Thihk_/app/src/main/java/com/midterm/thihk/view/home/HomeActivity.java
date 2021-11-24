@@ -25,6 +25,7 @@ import java.util.List;
 import butterknife.BindView;
 import com.midterm.thihk.Utils;
 import com.midterm.thihk.view.detail.DetailActivity;
+import com.midterm.thihk.view.notes.NoteActivity;
 
 import butterknife.ButterKnife;
 
@@ -35,6 +36,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public static final String EXTRA_POSITION = "position";
     public static final String EXTRA_DETAIL = "detail";
 
+    TextView tvNote;
     ViewPager viewPagerPlant;
     RecyclerView recyclerViewCategory;
 
@@ -53,6 +55,15 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         headerAdapter = new ViewPagerHeaderAdapter(this);
         viewPagerPlant.setPadding(20, 0, 150, 0);
         viewPagerPlant.setAdapter(headerAdapter);
+
+        tvNote = findViewById(R.id.tv_note);
+        tvNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, NoteActivity.class);
+                startActivity(intent);
+            }
+        });
 
         homeAdapter = new RecyclerViewHomeAdapter(this);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3,
