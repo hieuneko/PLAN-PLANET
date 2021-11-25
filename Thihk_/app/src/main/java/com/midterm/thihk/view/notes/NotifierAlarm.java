@@ -35,7 +35,6 @@ public class NotifierAlarm extends BroadcastReceiver {
         reminder.setMessage(intent.getStringExtra("Message"));
         reminder.setRemindDate(new Date(intent.getStringExtra("RemindDate")));
         reminder.setId(intent.getIntExtra("id",0));
-        roomDAO.Delete(reminder);
         AppDatabase.destroyInstance();
 
         Uri alarmsound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
@@ -58,7 +57,7 @@ public class NotifierAlarm extends BroadcastReceiver {
 
         Notification notification = builder.setContentTitle("Reminder")
                 .setContentText(intent.getStringExtra("Message")).setAutoCancel(true)
-                .setSound(alarmsound).setSmallIcon(R.mipmap.ic_launcher_round)
+                .setSound(alarmsound).setSmallIcon(R.drawable.ic_baseline_notifications_24)
                 .setContentIntent(intent2)
                 .setChannelId("my_channel_01")
                 .build();
@@ -67,7 +66,7 @@ public class NotifierAlarm extends BroadcastReceiver {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationManager.createNotificationChannel(channel);
         }
-        notificationManager.notify(1, notification);
+        notificationManager.notify(0, notification);
 
     }
 }

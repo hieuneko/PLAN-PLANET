@@ -16,9 +16,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.notes.NoteActivity"
-            android:exported="false" />
-        <activity
             android:name=".Splash"
             android:exported="true"
             android:theme="@style/AppTheme">
@@ -41,7 +38,11 @@
         <activity
             android:name=".view.detail.DetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".view.notes.NoteActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"/>
+        <receiver android:name=".view.notes.NotifierAlarm"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
