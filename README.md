@@ -9,7 +9,7 @@ Chạy api local trên nodejs cmd:
      #json-server plant_new.json
 		 ==> link: http://localhost:3000/
 
-Liệt kê phân công ra 
+Liệt kê phân công nhiệm vụ:
  Huỳnh Phước Khải Ch api + search
  Huy detail
  Bảo category
